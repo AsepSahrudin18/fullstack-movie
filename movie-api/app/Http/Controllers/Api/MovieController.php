@@ -44,7 +44,21 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = [
+            'title' => $request->title,
+            'description' => $request->description,
+            'release_at' => $request->release_at,
+            'category_id' => $request->category_id,
+        ];
+
+        $movies = Movie::create($input);
+
+        $data = [
+            "message"=>"Movie is Created!",
+            "data" => $movies,
+        ];
+
+        return response()->json($data, 201);
     }
 
     /**
