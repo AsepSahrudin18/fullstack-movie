@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Drama;
+use App\Models\Movie;
 
-class DramaController extends Controller
+class MovieController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,13 +15,13 @@ class DramaController extends Controller
      */
     public function index()
     {
-        $drama = Drama::latest()->get();
-        
-        if($drama){
+        $movies = Movie::latest()->get();
+
+        if($movies){
 
             $data = [
                 "message" => "Get All Resource",
-                "data" => $drama
+                "data" => $movies
             ];
 
             return response()->json($data, 200);

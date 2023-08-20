@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Comedy;
+use App\Models\Category;
 
-class ComedyController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,13 +15,13 @@ class ComedyController extends Controller
      */
     public function index()
     {
-        $comedies = Comedy::latest()->get();
+        $categories = Category::latest()->get();
 
-        if($comedies){
+        if($categories){
 
             $data = [
                 "message" => "Get All Resource",
-                "data" => $comedies
+                "data" => $categories
             ];
 
             return response()->json($data, 200);
